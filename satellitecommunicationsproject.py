@@ -9,19 +9,14 @@ Original file is located at
 
 import nbformat
 
-# Load the notebook
+# This is only to fix weird issues with the widgets
 nb_path = "/content/Satellite_Visualization/SatelliteCommunicationsProject_pynb.ipynb"
 nb = nbformat.read(nb_path, as_version=nbformat.NO_CONVERT)
-
-# Remove invalid widget metadata
 if 'widgets' in nb['metadata']:
     del nb['metadata']['widgets']
 
-# Save cleaned notebook
 nbformat.write(nb, nb_path)
 print("Notebook metadata cleaned successfully.")
-
-!pip install --quiet sgp4 plotly ipywidgets pyproj
 
 import numpy as np
 import matplotlib.pyplot as plt
